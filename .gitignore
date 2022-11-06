@@ -1,0 +1,6 @@
+# Игнорируется директория в любой директории проекта
+.venv/
+dist/
+__pycache__
+gendiff/__pycache__
+gendiff/scripts/__pycache__

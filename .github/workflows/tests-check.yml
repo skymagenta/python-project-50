@@ -1,0 +1,13 @@
+name: tests-check
+on:
+  push:
+    baranches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: pip install poetry
+      - run: make install
+      - run: make test
