@@ -6,7 +6,7 @@ test: # запускает тесты
 	poetry run pytest
 
 test-coverage:
-	poetry run pytest --cov=gendiff --cov-report xml
+	poetry run pytest --cov=gendiff --cov-report xml tests/
 
 lint: # запускает линтер
 	poetry run flake8 gendiff
