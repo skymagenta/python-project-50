@@ -11,12 +11,7 @@ test-coverage:
 lint: # запускает линтер
 	poetry run flake8 gendiff
 
-selfcheck:
-	poetry check
-
-check: selfcheck test lint
-
-build: check
+build: # сборка дистрибутива (без его установки)
 	poetry build
 
 package-install: # установка пакета из операционной системы
