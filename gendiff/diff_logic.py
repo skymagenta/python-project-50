@@ -12,7 +12,7 @@ def generate_diff(file_path1, file_path2):
         return generate_diff_yaml(data1, data2)
 
 
-def generate_diff_json(dict1, dict2): # noqa: C901
+def generate_diff_json(dict1, dict2):  # noqa: C901
     dict1_keys = set(dict1.keys())
     dict2_keys = set(dict2.keys())
     keys = list(dict1_keys.union(dict2_keys))
@@ -43,7 +43,7 @@ def generate_diff_json(dict1, dict2): # noqa: C901
     return diff
 
 
-def generate_diff_yaml(dict1, dict2): # noqa: C901
+def generate_diff_yaml(dict1, dict2):  # noqa: C901
     dict1_keys = set(dict1.keys())
     dict2_keys = set(dict2.keys())
     keys = list(dict1_keys.union(dict2_keys))
