@@ -8,3 +8,4 @@
 Example of the program:
 [![asciicast](https://asciinema.org/a/wnH9k9hGjvfsbgeL3TCps49Uc.svg)](https://asciinema.org/a/wnH9k9hGjvfsbgeL3TCps49Uc)
 [![asciicast](https://asciinema.org/a/5vycGhwbLOyqGZnhG9kF1eFEN.svg)](https://asciinema.org/a/5vycGhwbLOyqGZnhG9kF1eFEN)
+[![asciicast](https://asciinema.org/a/GPqZRj7TBLifoneIQ5pHl9g9b.svg)](https://asciinema.org/a/GPqZRj7TBLifoneIQ5pHl9g9b)

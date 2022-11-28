@@ -11,11 +11,13 @@ test-coverage:
 lint: # запускает линтер
 	poetry run flake8 gendiff
 
-build: # сборка дистрибутива (без его установки)
+build: # сборка дистрибутива / пакета (без его установки)
 	poetry build
 
-package-install: # установка пакета из операционной системы
+package-install: # установка пакета из операционной системы (установка ранее собранного дистрибутива)
 	python3 -m pip install --user dist/*.whl
+ 
+ package-install-without-building: # установка пакета без сборки дистрибутива
+	python3 -m pip install .
 
-
-.PHONY: install test lint selfcheck check build
+.PHONY: install test lint build
