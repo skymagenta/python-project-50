@@ -20,7 +20,7 @@ def get_stylish(diff):
     return FINAL_TEMPLATE.format(result)
 
 
-def render_nodes(diff, level=1):
+def render_nodes(diff, level=1):  # noqa: C901
     """
     diff: list of dict
     diff is internal structure of difference between two configuration files
@@ -32,8 +32,8 @@ def render_nodes(diff, level=1):
     for node in diff:
         if node['node_type'] == ADDED:
             result.append(
-                create_line(level, '+', node['key'], node['value']['new_value'])
-                )
+                create_line(level, '+',
+                            node['key'], node['value']['new_value']))
         elif node['node_type'] == DELETED:
             result.append(
                 create_line(level, '-', node['key'], node['value']['old_value'])
@@ -52,10 +52,10 @@ def render_nodes(diff, level=1):
         elif node['node_type'] == NESTED:
             result.extend([
                 START_TEMPLATE.format(indent, ' ', node['key']),  # key: value
-                render_nodes(node['children'], level=level+1),  # dict
+                render_nodes(node['children'], level=level + 1),  # dict
                 END_TEMPLATE.format(indent)  # ending bracket
             ])
-    
+
     return '\n'.join(result)
 
 
@@ -63,7 +63,7 @@ def create_line(level, sign, key, value):
     result = []
     indent = get_indent(level)
     level += 1
-    
+
     if isinstance(value, dict):
         result.extend([
             START_TEMPLATE.format(indent, sign, key),
@@ -74,8 +74,9 @@ def create_line(level, sign, key, value):
         result.append(
             MIDDLE_TEMPLATE.format(indent, sign, key, get_valid_value(value))
         )
-    
+
     return '\n'.join(result)
+
 
 def formate_dict_value(dict_value, level):
     result = []
@@ -92,6 +93,7 @@ def get_valid_value(value):
     else:
         valid_value = str(value)
     return valid_value
+
 
 def get_indent(level):
     return ' ' * (MAX_INDENT * level - SIGN_INDENT)

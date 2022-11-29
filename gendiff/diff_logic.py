@@ -1,5 +1,3 @@
-import json
-import yaml
 from gendiff.data_loader import load_data
 
 ADDED = 'added'
@@ -21,7 +19,7 @@ def get_diff(dict1, dict2):
     keys = list(dict1_keys.union(dict2_keys))
     keys.sort()
     diff = []
-    
+
     for key in keys:
         if (key in dict1_keys) and (key not in dict2_keys):
             diff.append(get_node(key, DELETED, old_value=dict1[key]))
@@ -37,7 +35,8 @@ def get_diff(dict1, dict2):
             diff.append(get_node(key, NESTED, children=children_diff))
 
         else:
-            diff.append(get_node(key, UPDATED, old_value=dict1[key], new_value=dict2[key]))
+            diff.append(get_node(key, UPDATED,
+                        old_value=dict1[key], new_value=dict2[key]))
 
     return diff
 
@@ -53,5 +52,5 @@ def get_node(key, node_type, old_value=None, new_value=None, children=None):
     }
     if children is not None:
         node['children'] = children
-    
+
     return node
