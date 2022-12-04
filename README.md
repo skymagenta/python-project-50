@@ -10,3 +10,4 @@ Example of the program:
 [![asciicast](https://asciinema.org/a/5vycGhwbLOyqGZnhG9kF1eFEN.svg)](https://asciinema.org/a/5vycGhwbLOyqGZnhG9kF1eFEN)
 [![asciicast](https://asciinema.org/a/GPqZRj7TBLifoneIQ5pHl9g9b.svg)](https://asciinema.org/a/GPqZRj7TBLifoneIQ5pHl9g9b)
 [![asciicast](https://asciinema.org/a/WQk3646wOd7BTCuQgl6THxDds.svg)](https://asciinema.org/a/WQk3646wOd7BTCuQgl6THxDds)
+[![asciicast](https://asciinema.org/a/wqWZLz9sNLC74qMKI6o49saoy.svg)](https://asciinema.org/a/wqWZLz9sNLC74qMKI6o49saoy)

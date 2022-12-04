@@ -1,0 +1,106 @@
+{
+    "common": {
+        "value": {
+            "follow": {
+                "value": false,
+                "node_type": "added"
+            },
+            "setting1": {
+                "value": "Value 1",
+                "node_type": "unchanged"
+            },
+            "setting2": {
+                "value": 200,
+                "node_type": "deleted"
+            },
+            "setting3": {
+                "value": {
+                    "old_value": true,
+                    "new_value": null
+                },
+                "node_type": "updated"
+            },
+            "setting4": {
+                "value": "blah blah",
+                "node_type": "added"
+            },
+            "setting5": {
+                "value": {
+                    "key5": "value5"
+                },
+                "node_type": "added"
+            },
+            "setting6": {
+                "value": {
+                    "doge": {
+                        "value": {
+                            "wow": {
+                                "value": {
+                                    "old_value": "",
+                                    "new_value": "so much"
+                                },
+                                "node_type": "updated"
+                            }
+                        },
+                        "node_type": "nested"
+                    },
+                    "key": {
+                        "value": "value",
+                        "node_type": "unchanged"
+                    },
+                    "ops": {
+                        "value": "vops",
+                        "node_type": "added"
+                    }
+                },
+                "node_type": "nested"
+            }
+        },
+        "node_type": "nested"
+    },
+    "group1": {
+        "value": {
+            "baz": {
+                "value": {
+                    "old_value": "bas",
+                    "new_value": "bars"
+                },
+                "node_type": "updated"
+            },
+            "foo": {
+                "value": "bar",
+                "node_type": "unchanged"
+            },
+            "nest": {
+                "value": {
+                    "old_value": {
+                        "key": "value"
+                    },
+                    "new_value": "str"
+                },
+                "node_type": "updated"
+            }
+        },
+        "node_type": "nested"
+    },
+    "group2": {
+        "value": {
+            "abc": 12345,
+            "deep": {
+                "id": 45
+            }
+        },
+        "node_type": "deleted"
+    },
+    "group3": {
+        "value": {
+            "deep": {
+                "id": {
+                    "number": 45
+                }
+            },
+            "fee": 100500
+        },
+        "node_type": "added"
+    }
+}
