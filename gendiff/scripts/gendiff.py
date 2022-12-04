@@ -1,15 +1,11 @@
 #!/usr/bin/env python
-
 from gendiff.arg_parser import parse_arguments
-from gendiff.formatter import get_stylish
-from gendiff.diff_logic import get_dict, get_diff
+from gendiff.generate_diff import generate_diff
 
 
-def main(stylish='stylish'):
+def main():
     args = parse_arguments()
-    if stylish == 'stylish':
-        print(get_stylish(
-              get_diff(*get_dict(args.first_file, args.second_file))))
+    print(generate_diff(args.first_file, args.second_file, args.format))
 
 
 if __name__ == '__main__':
