@@ -43,7 +43,7 @@ def get_valid_value(value):
         valid_value = str(value).lower()
     elif value is None:
         valid_value = 'null'
-    elif isinstance(value, bool):
+    elif isinstance(value, int):
         valid_value = str(value)
     elif isinstance(value, dict):
         valid_value = '[complex value]'
