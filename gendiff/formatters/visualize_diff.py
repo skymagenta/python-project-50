@@ -3,7 +3,7 @@ from gendiff.formatters.plain import get_plain
 from gendiff.formatters.json import get_json
 
 
-def visualize_diff(diff, format='stylish'):
+def visualize_diff(diff, format):
     """
     diff: list of dict
     diff is internal structure of difference between two configuration files
