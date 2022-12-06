@@ -45,7 +45,6 @@ EXPECTED_JSON_NESTED = 'tests/fixtures/json_nested.txt'
     (YAML1_NESTED, YAML2_NESTED, 'plain', EXPECTED_PLAIN_NESTED),
     (YAML1_NESTED, YAML2_NESTED, 'json', EXPECTED_JSON_NESTED)
 ])
-
 def test_generate_diff(file_path1, file_path2, format, expexted_file_path):
     with open(expexted_file_path) as file:
         expected_result = file.read()
