@@ -1,4 +1,4 @@
-from gendiff.diff_logic import ADDED, DELETED, UNCHANGED, UPDATED, NESTED
+from gendiff.dicts_diff import ADDED, DELETED, UNCHANGED, UPDATED, NESTED
 
 MIDDLE_TEMPLATE = '{}{} {}: {}'
 START_TEMPLATE = '{}{} {}: {{'
@@ -25,7 +25,6 @@ def render_nodes(diff, level=1):  # noqa: C901
     diff: list of dict
     diff is internal structure of difference between two configuration files
     """
-    diff.sort(key=lambda node: node['key'])
     result = []
     indent = get_indent(level)
 
@@ -67,7 +66,7 @@ def create_line(level, sign, key, value):
     if isinstance(value, dict):
         result.extend([
             START_TEMPLATE.format(indent, sign, key),
-            formate_dict_value(value, level),
+            get_valid_value(value, level),
             END_TEMPLATE.format(indent)
         ])
     else:
@@ -78,20 +77,20 @@ def create_line(level, sign, key, value):
     return '\n'.join(result)
 
 
-def formate_dict_value(dict_value, level):
-    result = []
-    for key, value in dict_value.items():
-        result.append(create_line(level, ' ', key, value))
-    return '\n'.join(result)
+def get_valid_value(value, level=None):
 
-
-def get_valid_value(value):
-    if isinstance(value, bool):
+    if isinstance(value, dict):
+        result = []
+        for key, dict_value in value.items():
+            result.append(create_line(level, ' ', key, dict_value))
+        valid_value = '\n'.join(result)
+    elif isinstance(value, bool):
         valid_value = str(value).lower()
     elif value is None:
         valid_value = 'null'
     else:
         valid_value = str(value)
+
     return valid_value
 
 

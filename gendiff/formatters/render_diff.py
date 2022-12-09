@@ -14,3 +14,6 @@ def visualize_diff(diff, format):
         return get_plain(diff)
     elif format == 'json':
         return get_json(diff)
+    else:
+        raise ValueError(
+            'Format is not supported, use stylish, plain or json format')

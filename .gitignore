@@ -1,4 +1,6 @@
 # Игнорируется директория в любой директории проекта
+.idea
+.pytest_cache
 .venv
 dist
 __pycache__

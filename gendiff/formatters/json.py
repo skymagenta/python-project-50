@@ -1,5 +1,5 @@
 import json
-from gendiff.diff_logic import ADDED, DELETED, UNCHANGED, UPDATED, NESTED
+from gendiff.dicts_diff import ADDED, DELETED, UNCHANGED, UPDATED, NESTED
 
 
 def get_json(diff):

@@ -1,4 +1,4 @@
-from gendiff.diff_logic import ADDED, DELETED, UPDATED, NESTED
+from gendiff.dicts_diff import ADDED, DELETED, UPDATED, NESTED
 
 TEMPLATE_ADDED = "Property '{}' was added with value: {}"
 TEMPLATE_DELETED = "Property '{}' was removed"

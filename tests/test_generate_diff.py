@@ -2,50 +2,33 @@ import pytest
 
 from gendiff.generate_diff import generate_diff
 
-JSON1 = 'tests/fixtures/file1.json'
-JSON2 = 'tests/fixtures/file2.json'
-JSON1_NESTED = 'tests/fixtures/file11.json'
-JSON2_NESTED = 'tests/fixtures/file22.json'
-YML1 = 'tests/fixtures/file1.yml'
-YML2 = 'tests/fixtures/file2.yml'
-YML1_NESTED = 'tests/fixtures/file11.yml'
-YML2_NESTED = 'tests/fixtures/file22.yml'
-YAML1 = 'tests/fixtures/file1.yaml'
-YAML2 = 'tests/fixtures/file2.yaml'
-YAML1_NESTED = 'tests/fixtures/file11.yaml'
-YAML2_NESTED = 'tests/fixtures/file22.yaml'
-
-EXPECTED_STYLISH = 'tests/fixtures/stylish.txt'
-EXPECTED_STYLISH_NESTED = 'tests/fixtures/stylish_nested.txt'
-EXPECTED_PLAIN = 'tests/fixtures/plain.txt'
-EXPECTED_PLAIN_NESTED = 'tests/fixtures/plain_nested.txt'
-EXPECTED_JSON = 'tests/fixtures/json.txt'
-EXPECTED_JSON_NESTED = 'tests/fixtures/json_nested.txt'
+def get_path_to_file(file_name):
+    return 'tests/fixtures/' + file_name
 
 
-@pytest.mark.parametrize('file_path1, file_path2, format, expexted_file_path', [
-    (JSON1, JSON2, 'stylish', EXPECTED_STYLISH),
-    (JSON1, JSON2, 'plain', EXPECTED_PLAIN),
-    (JSON1, JSON2, 'json', EXPECTED_JSON),
-    (JSON1_NESTED, JSON2_NESTED, 'stylish', EXPECTED_STYLISH_NESTED),
-    (JSON1_NESTED, JSON2_NESTED, 'plain', EXPECTED_PLAIN_NESTED),
-    (JSON1_NESTED, JSON2_NESTED, 'json', EXPECTED_JSON_NESTED),
+@pytest.mark.parametrize('file_path1, file_path2, format, expected_file_path', [
+    (get_path_to_file('file1.json'), get_path_to_file('file2.json'), 'stylish', get_path_to_file('stylish.txt')),
+    (get_path_to_file('file1.json'), get_path_to_file('file2.json'), 'plain', get_path_to_file('plain.txt')),
+    (get_path_to_file('file1.json'), get_path_to_file('file2.json'), 'json', get_path_to_file('json.txt')),
+    (get_path_to_file('file11.json'), get_path_to_file('file22.json'), 'stylish', get_path_to_file('stylish_nested.txt')),
+    (get_path_to_file('file11.json'), get_path_to_file('file22.json'), 'plain', get_path_to_file('plain_nested.txt')),
+    (get_path_to_file('file11.json'), get_path_to_file('file22.json'), 'json', get_path_to_file('json_nested.txt')),
 
-    (YML1, YML2, 'stylish', EXPECTED_STYLISH),
-    (YML1, YML2, 'plain', EXPECTED_PLAIN),
-    (YML1, YML2, 'json', EXPECTED_JSON),
-    (YML1_NESTED, YML2_NESTED, 'stylish', EXPECTED_STYLISH_NESTED),
-    (YML1_NESTED, YML2_NESTED, 'plain', EXPECTED_PLAIN_NESTED),
-    (YML1_NESTED, YML2_NESTED, 'json', EXPECTED_JSON_NESTED),
+    (get_path_to_file('file1.yml'), get_path_to_file('file2.yml'), 'stylish', get_path_to_file('stylish.txt')),
+    (get_path_to_file('file1.yml'), get_path_to_file('file2.yml'), 'plain', get_path_to_file('plain.txt')),
+    (get_path_to_file('file1.yml'), get_path_to_file('file2.yml'), 'json', get_path_to_file('json.txt')),
+    (get_path_to_file('file11.yml'), get_path_to_file('file22.yml'), 'stylish', get_path_to_file('stylish_nested.txt')),
+    (get_path_to_file('file11.yml'), get_path_to_file('file22.yml'), 'plain', get_path_to_file('plain_nested.txt')),
+    (get_path_to_file('file11.yml'), get_path_to_file('file22.yml'), 'json', get_path_to_file('json_nested.txt')),
 
-    (YAML1, YAML2, 'stylish', EXPECTED_STYLISH),
-    (YAML1, YAML2, 'plain', EXPECTED_PLAIN),
-    (YAML1, YAML2, 'json', EXPECTED_JSON),
-    (YAML1_NESTED, YAML2_NESTED, 'stylish', EXPECTED_STYLISH_NESTED),
-    (YAML1_NESTED, YAML2_NESTED, 'plain', EXPECTED_PLAIN_NESTED),
-    (YAML1_NESTED, YAML2_NESTED, 'json', EXPECTED_JSON_NESTED)
+    (get_path_to_file('file1.yaml'), get_path_to_file('file2.yaml'), 'stylish', get_path_to_file('stylish.txt')),
+    (get_path_to_file('file1.yaml'), get_path_to_file('file2.yaml'), 'plain', get_path_to_file('plain.txt')),
+    (get_path_to_file('file1.yaml'), get_path_to_file('file2.yaml'), 'json', get_path_to_file('json.txt')),
+    (get_path_to_file('file11.yaml'), get_path_to_file('file22.yaml'), 'stylish', get_path_to_file('stylish_nested.txt')),
+    (get_path_to_file('file11.yaml'), get_path_to_file('file22.yaml'), 'plain', get_path_to_file('plain_nested.txt')),
+    (get_path_to_file('file11.yaml'), get_path_to_file('file22.yaml'), 'json', get_path_to_file('json_nested.txt')),
 ])
-def test_generate_diff(file_path1, file_path2, format, expexted_file_path):
-    with open(expexted_file_path) as file:
+def test_generate_diff(file_path1, file_path2, format, expected_file_path):
+    with open(expected_file_path) as file:
         expected_result = file.read()
-    assert expected_result == generate_diff(file_path1, file_path2, format)
+        assert expected_result == generate_diff(file_path1, file_path2, format)
