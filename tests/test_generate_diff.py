@@ -2,6 +2,7 @@ import pytest
 
 from gendiff.generate_diff import generate_diff
 
+
 def get_path_to_file(file_name):
     return 'tests/fixtures/' + file_name
 
