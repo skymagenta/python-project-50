@@ -33,22 +33,26 @@ def render_nodes(diff, level=1):  # noqa: C901
             result.append(
                 create_line(level, '+',
                             node['key'], node['value']['new_value']))
-        elif node['node_type'] == DELETED:
+            continue
+        if node['node_type'] == DELETED:
             result.append(
                 create_line(level, '-', node['key'], node['value']['old_value'])
             )
-        elif node['node_type'] == UNCHANGED:
+            continue
+        if node['node_type'] == UNCHANGED:
             result.append(
                 create_line(level, ' ', node['key'], node['value']['old_value'])
             )
-        elif node['node_type'] == UPDATED:
+            continue
+        if node['node_type'] == UPDATED:
             result.append(
                 create_line(level, '-', node['key'], node['value']['old_value'])
             )
             result.append(
                 create_line(level, '+', node['key'], node['value']['new_value'])
             )
-        elif node['node_type'] == NESTED:
+            continue
+        if node['node_type'] == NESTED:
             result.extend([
                 START_TEMPLATE.format(indent, ' ', node['key']),  # key: value
                 render_nodes(node['children'], level=level + 1),  # dict
@@ -66,32 +70,32 @@ def create_line(level, sign, key, value):
     if isinstance(value, dict):
         result.extend([
             START_TEMPLATE.format(indent, sign, key),
-            get_valid_value(value, level),
+            to_str(value, level),
             END_TEMPLATE.format(indent)
         ])
     else:
         result.append(
-            MIDDLE_TEMPLATE.format(indent, sign, key, get_valid_value(value))
+            MIDDLE_TEMPLATE.format(indent, sign, key, to_str(value))
         )
 
     return '\n'.join(result)
 
 
-def get_valid_value(value, level=None):
+def to_str(value, level=None):
 
     if isinstance(value, dict):
         result = []
         for key, dict_value in value.items():
             result.append(create_line(level, ' ', key, dict_value))
-        valid_value = '\n'.join(result)
-    elif isinstance(value, bool):
-        valid_value = str(value).lower()
-    elif value is None:
-        valid_value = 'null'
-    else:
-        valid_value = str(value)
+        return '\n'.join(result)
 
-    return valid_value
+    elif isinstance(value, bool):
+        return str(value).lower()
+
+    elif value is None:
+        return 'null'
+
+    return str(value)
 
 
 def get_indent(level):

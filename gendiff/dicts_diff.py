@@ -1,4 +1,4 @@
-from gendiff.data_loader import load_content, get_content
+from gendiff.content_loader import parse_content, get_content
 
 ADDED = 'added'
 DELETED = 'deleted'
@@ -8,8 +8,8 @@ UPDATED = 'updated'
 
 
 def get_dict(file_path1, file_path2):
-    dict1 = load_content(*get_content(file_path1))
-    dict2 = load_content(*get_content(file_path2))
+    dict1 = parse_content(*get_content(file_path1))
+    dict2 = parse_content(*get_content(file_path2))
     return dict1, dict2
 
 
@@ -22,26 +22,26 @@ def build_diff(data1, data2):
 
     for key in keys:
         if key in dict1_keys - dict2_keys:
-            diff.append(get_node(key, DELETED, old_value=data1[key]))
+            diff.append(build_node(key, DELETED, old_value=data1[key]))
 
         elif key in dict2_keys - dict1_keys:
-            diff.append(get_node(key, ADDED, new_value=data2[key]))
+            diff.append(build_node(key, ADDED, new_value=data2[key]))
 
         elif data1[key] == data2[key]:
-            diff.append(get_node(key, UNCHANGED, old_value=data1[key]))
+            diff.append(build_node(key, UNCHANGED, old_value=data1[key]))
 
         elif isinstance(data1[key], dict) and isinstance(data2[key], dict):
             children_diff = build_diff(data1[key], data2[key])
-            diff.append(get_node(key, NESTED, children=children_diff))
+            diff.append(build_node(key, NESTED, children=children_diff))
 
         else:
-            diff.append(get_node(key, UPDATED,
+            diff.append(build_node(key, UPDATED,
                         old_value=data1[key], new_value=data2[key]))
 
     return diff
 
 
-def get_node(key, node_type, old_value=None, new_value=None, children=None):
+def build_node(key, node_type, old_value=None, new_value=None, children=None):
     node = {
         'key': key,
         'node_type': node_type,

@@ -19,7 +19,7 @@ def get_plain(diff, activate=''):  # noqa: C901
         if node['node_type'] == ADDED:
             result.append(TEMPLATE_ADDED.format(
                 path,
-                get_valid_value(node['value']['new_value'])
+                to_str(node['value']['new_value'])
             ))
 
         elif node['node_type'] == DELETED:
@@ -28,8 +28,8 @@ def get_plain(diff, activate=''):  # noqa: C901
         elif node['node_type'] == UPDATED:
             result.append(TEMPLATE_UPDATED.format(
                 path,
-                get_valid_value(node['value']['old_value']),
-                get_valid_value(node['value']['new_value'])
+                to_str(node['value']['old_value']),
+                to_str(node['value']['new_value'])
             ))
 
         elif node['node_type'] == NESTED:
@@ -38,15 +38,14 @@ def get_plain(diff, activate=''):  # noqa: C901
     return '\n'.join(result)
 
 
-def get_valid_value(value):
+def to_str(value):
     if isinstance(value, bool):
-        valid_value = str(value).lower()
+        return str(value).lower()
     elif value is None:
-        valid_value = 'null'
+        return 'null'
     elif isinstance(value, int):
-        valid_value = str(value)
+        return str(value)
     elif isinstance(value, dict):
-        valid_value = '[complex value]'
+        return '[complex value]'
     else:
-        valid_value = f"'{value}'"
-    return valid_value
+        return f"'{value}'"

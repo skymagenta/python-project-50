@@ -7,8 +7,7 @@ def get_json(diff):
     diff: list of dict
     diff is internal structure of difference between two configuration files
     """
-    result = json.dumps(render_nodes(diff), indent=4)
-    return result
+    return json.dumps(render_nodes(diff), indent=4)
 
 
 def render_nodes(diff):
