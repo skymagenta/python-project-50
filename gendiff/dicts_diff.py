@@ -1,16 +1,8 @@
-from gendiff.content_loader import parse_content, get_content
-
 ADDED = 'added'
 DELETED = 'deleted'
 UNCHANGED = 'unchanged'
 NESTED = 'nested'
 UPDATED = 'updated'
-
-
-def get_dict(file_path1, file_path2):
-    dict1 = parse_content(*get_content(file_path1))
-    dict2 = parse_content(*get_content(file_path2))
-    return dict1, dict2
 
 
 def build_diff(data1, data2):

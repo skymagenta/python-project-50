@@ -1,6 +1,9 @@
-from gendiff.formatters.render_diff import visualize_diff
-from gendiff.dicts_diff import get_dict, build_diff
+from gendiff.formatters.render_diff import apply_diff
+from gendiff.content_loader import get_content
+from gendiff.dicts_diff import build_diff
 
 
 def generate_diff(filepath1, filepath2, format='stylish'):
-    return visualize_diff(build_diff(*get_dict(filepath1, filepath2)), format)
+    dict1 = get_content(filepath1)
+    dict2 = get_content(filepath2)
+    return apply_diff(build_diff(dict1, dict2), format)

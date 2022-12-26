@@ -1,4 +1,4 @@
-from gendiff.dicts_diff import ADDED, DELETED, UNCHANGED, UPDATED, NESTED
+from gendiff.dicts_diff import ADDED, DELETED, UNCHANGED, UPDATED
 
 MIDDLE_TEMPLATE = '{}{} {}: {}'
 START_TEMPLATE = '{}{} {}: {{'
@@ -20,7 +20,7 @@ def get_stylish(diff):
     return FINAL_TEMPLATE.format(result)
 
 
-def render_nodes(diff, level=1):  # noqa: C901
+def render_nodes(diff, level=1):
     """
     diff: list of dict
     diff is internal structure of difference between two configuration files
@@ -52,12 +52,11 @@ def render_nodes(diff, level=1):  # noqa: C901
                 create_line(level, '+', node['key'], node['value']['new_value'])
             )
             continue
-        if node['node_type'] == NESTED:
-            result.extend([
-                START_TEMPLATE.format(indent, ' ', node['key']),  # key: value
-                render_nodes(node['children'], level=level + 1),  # dict
-                END_TEMPLATE.format(indent)  # ending bracket
-            ])
+        result.extend([
+            START_TEMPLATE.format(indent, ' ', node['key']),  # key: value
+            render_nodes(node['children'], level=level + 1),  # dict
+            END_TEMPLATE.format(indent)  # ending bracket
+        ])
 
     return '\n'.join(result)
 
