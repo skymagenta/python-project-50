@@ -1,4 +1,7 @@
-from gendiff.dicts_diff import ADDED, DELETED, UNCHANGED, UPDATED
+ADDED = 'added'
+DELETED = 'deleted'
+UNCHANGED = 'unchanged'
+UPDATED = 'updated'
 
 MIDDLE_TEMPLATE = '{indent}{sign} {key}: {value}'
 START_TEMPLATE = '{indent}{sign} {key}: {{'

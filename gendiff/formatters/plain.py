@@ -6,7 +6,15 @@ TEMPLATE_UPDATED = "Property '{}' was updated. From {} to {}"
 TEMPLATE_PATH = "{}.{}"
 
 
-def get_plain(diff, activate=''):  # noqa: C901
+def get_plain(diff, activate=''):
+    """
+    diff: list of dict
+    diff is internal structure of difference between two configuration files
+    """
+    return render_nodes(diff, activate)
+
+
+def render_nodes(diff, activate=''):  # noqa: C901
     diff.sort(key=lambda node: node['key'])
     result = []
 
@@ -34,6 +42,7 @@ def get_plain(diff, activate=''):  # noqa: C901
 
         elif node['node_type'] == NESTED:
             result.append(get_plain(node['children'], activate=path))
+            continue
 
     return '\n'.join(result)
 

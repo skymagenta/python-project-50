@@ -1,5 +1,5 @@
 from gendiff.formatters.render_diff import apply_diff
-from gendiff.content_loader import get_content
+from gendiff.content import get_content
 from gendiff.dicts_diff import build_diff
 
 

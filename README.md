@@ -17,8 +17,8 @@ Supported file formats: YAML, JSON.
 
 
 Example of the program:
-[![asciicast](https://asciinema.org/a/wnH9k9hGjvfsbgeL3TCps49Uc.svg)](https://asciinema.org/a/wnH9k9hGjvfsbgeL3TCps49Uc)
-[![asciicast](https://asciinema.org/a/5vycGhwbLOyqGZnhG9kF1eFEN.svg)](https://asciinema.org/a/5vycGhwbLOyqGZnhG9kF1eFEN)
-[![asciicast](https://asciinema.org/a/GPqZRj7TBLifoneIQ5pHl9g9b.svg)](https://asciinema.org/a/GPqZRj7TBLifoneIQ5pHl9g9b)
-[![asciicast](https://asciinema.org/a/WQk3646wOd7BTCuQgl6THxDds.svg)](https://asciinema.org/a/WQk3646wOd7BTCuQgl6THxDds)
-[![asciicast](https://asciinema.org/a/wqWZLz9sNLC74qMKI6o49saoy.svg)](https://asciinema.org/a/wqWZLz9sNLC74qMKI6o49saoy)
+[![asciicast](https://asciinema.org/a/JAuETNozPc43Qp9J5tZtJ5Nzk.svg)](https://asciinema.org/a/JAuETNozPc43Qp9J5tZtJ5Nzk)
+[![asciicast](https://asciinema.org/a/vaNhrxCwx9Q8C3W5466hH2JrK.svg)](https://asciinema.org/a/vaNhrxCwx9Q8C3W5466hH2JrK)
+[![asciicast](https://asciinema.org/a/qTUojHUVeHLa9oMM6PG2ZtQni.svg)](https://asciinema.org/a/qTUojHUVeHLa9oMM6PG2ZtQni)
+[![asciicast](https://asciinema.org/a/PijFLXvHtQWwDMFMpMdjCToSo.svg)](https://asciinema.org/a/PijFLXvHtQWwDMFMpMdjCToSo)
+[![asciicast](https://asciinema.org/a/wT0KUYzp9TbDpNrYKHMBpf1H7.svg)](https://asciinema.org/a/wT0KUYzp9TbDpNrYKHMBpf1H7)

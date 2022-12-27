@@ -7,8 +7,7 @@ def get_content(file_path):
     with open(file_path, 'r') as file:
         content = file.read()
     _, extension = path.splitext(file_path)
-    extension = extension.lower().split('.')[-1]
-    return parse_content(content, extension)
+    return parse_content(content, extension[1:])
 
 
 def parse_content(content, content_format):
