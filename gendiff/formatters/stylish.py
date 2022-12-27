@@ -1,9 +1,9 @@
 from gendiff.dicts_diff import ADDED, DELETED, UNCHANGED, UPDATED
 
-MIDDLE_TEMPLATE = '{}{} {}: {}'
-START_TEMPLATE = '{}{} {}: {{'
-END_TEMPLATE = '{}  }}'
-FINAL_TEMPLATE = '{{\n{}\n}}'
+MIDDLE_TEMPLATE = '{indent}{sign} {key}: {value}'
+START_TEMPLATE = '{indent}{sign} {key}: {{'
+END_TEMPLATE = '{indent}  }}'
+FINAL_TEMPLATE = '{{\n{result}\n}}'
 
 MAX_INDENT = 4
 SIGN_INDENT = 2
@@ -17,7 +17,7 @@ def get_stylish(diff):
     эти строки подставляются в шаблон через format
     """
     result = render_nodes(diff)
-    return FINAL_TEMPLATE.format(result)
+    return FINAL_TEMPLATE.format(result=result)
 
 
 def render_nodes(diff, level=1):
@@ -53,9 +53,9 @@ def render_nodes(diff, level=1):
             )
             continue
         result.extend([
-            START_TEMPLATE.format(indent, ' ', node['key']),  # key: value
+            START_TEMPLATE.format(indent=indent, sign=' ', key=node['key']),
             render_nodes(node['children'], level=level + 1),  # dict
-            END_TEMPLATE.format(indent)  # ending bracket
+            END_TEMPLATE.format(indent=indent)
         ])
 
     return '\n'.join(result)
@@ -68,13 +68,14 @@ def create_line(level, sign, key, value):
 
     if isinstance(value, dict):
         result.extend([
-            START_TEMPLATE.format(indent, sign, key),
+            START_TEMPLATE.format(indent=indent, sign=sign, key=key),
             to_str(value, level),
-            END_TEMPLATE.format(indent)
+            END_TEMPLATE.format(indent=indent)
         ])
     else:
         result.append(
-            MIDDLE_TEMPLATE.format(indent, sign, key, to_str(value))
+            MIDDLE_TEMPLATE.format(
+                indent=indent, sign=sign, key=key, value=to_str(value))
         )
 
     return '\n'.join(result)
