@@ -16,9 +16,14 @@ Output formats can be as follows:
 Supported file formats: YAML, JSON.
 
 
-Example of the program:
-[![asciicast](https://asciinema.org/a/JAuETNozPc43Qp9J5tZtJ5Nzk.svg)](https://asciinema.org/a/JAuETNozPc43Qp9J5tZtJ5Nzk)
-[![asciicast](https://asciinema.org/a/vaNhrxCwx9Q8C3W5466hH2JrK.svg)](https://asciinema.org/a/vaNhrxCwx9Q8C3W5466hH2JrK)
-[![asciicast](https://asciinema.org/a/qTUojHUVeHLa9oMM6PG2ZtQni.svg)](https://asciinema.org/a/qTUojHUVeHLa9oMM6PG2ZtQni)
-[![asciicast](https://asciinema.org/a/PijFLXvHtQWwDMFMpMdjCToSo.svg)](https://asciinema.org/a/PijFLXvHtQWwDMFMpMdjCToSo)
-[![asciicast](https://asciinema.org/a/wT0KUYzp9TbDpNrYKHMBpf1H7.svg)](https://asciinema.org/a/wT0KUYzp9TbDpNrYKHMBpf1H7)
+### Example of working with the program:
+example 1: comparison two json files
+[![asciicast](https://asciinema.org/a/stnKLU8tfs1SDX0m37QYft7Kc.svg)](https://asciinema.org/a/stnKLU8tfs1SDX0m37QYft7Kc)
+example 2: comparison two yaml files
+[![asciicast](https://asciinema.org/a/bdMohbgxFPv6iDey1sbhPUbT5.svg)](https://asciinema.org/a/bdMohbgxFPv6iDey1sbhPUbT5)
+example 3: comparison two nested json files and uses stylish display format
+[![asciicast](https://asciinema.org/a/mou75Ayhp0tTbbUUFmAtBr4rb.svg)](https://asciinema.org/a/mou75Ayhp0tTbbUUFmAtBr4rb)
+example 4: comparison two yaml files (included nested yaml files) and uses plain display format
+[![asciicast](https://asciinema.org/a/7YIZHVzM5BTWzC3BsTob1bq84.svg)](https://asciinema.org/a/7YIZHVzM5BTWzC3BsTob1bq84)
+example 5: comparison two json files and uses json display format
+[![asciicast](https://asciinema.org/a/M5Ubup9oTTHhMETApVnWBF4OZ.svg)](https://asciinema.org/a/M5Ubup9oTTHhMETApVnWBF4OZ)
